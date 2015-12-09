@@ -1,0 +1,82 @@
+extends layout
+block content
+    div(class="container-fluid")
+        div(class="row")
+            div(class="col-lg-3 col-md-12")
+                h3 inKaffe
+                div(id = "dblist")
+                    h4 All LIST DB
+                    ol(id = "dblistcont")
+                    button(id="create_playlist").
+                        Create Play List    
+            div(class="col-lg-9 col-md-12")
+                div(class="row")
+                    div(class="col-lg-9 col-md-12")
+                        div(class="row")
+                            div(class="col-lg-3 col-md-12")
+                                p(id="playlist-setPlaylist-audio-mix").
+                                    playlist 1
+                                div
+                                    input(id = "scanFiles" class = "btn" type = "button" value = "Scan Media Files")
+                                    input(id = "scanConvertFiles" class = "btn" type = "button" value = "Convert Media Files")
+                                ol( id = "filesList" )
+                            div(class="col-lg-6 col-md-12")
+                                h1 PLAYLISTS
+                                //Player
+                                #jp_container_N.jp-video.jp-video-270p(role='application', aria-label='media player')
+                                  .jp-type-playlist
+                                    #jquery_jplayer_N.jp-jplayer
+                                    .jp-gui
+                                      .jp-video-play
+                                        button.jp-video-play-icon(role='button', tabindex='0') play
+                                      .jp-interface
+                                        .jp-progress
+                                          .jp-seek-bar
+                                            .jp-play-bar
+                                        .jp-current-time(role='timer', aria-label='time')  
+                                        .jp-duration(role='timer', aria-label='duration')  
+                                        .jp-details
+                                          .jp-title(aria-label='title')  
+                                        .jp-controls-holder
+                                          .jp-volume-controls
+                                            button.jp-mute(role='button', tabindex='0') mute
+                                            button.jp-volume-max(role='button', tabindex='0') max volume
+                                            .jp-volume-bar
+                                              .jp-volume-bar-value
+                                          .jp-controls
+                                            button.jp-previous(role='button', tabindex='0') previous
+                                            button.jp-play(role='button', tabindex='0') play
+                                            button.jp-stop(role='button', tabindex='0') stop
+                                            button.jp-next(role='button', tabindex='0') next
+                                          .jp-toggles
+                                            button.jp-repeat(role='button', tabindex='0') repeat
+                                            button.jp-shuffle(role='button', tabindex='0') shuffle
+                                            button.jp-full-screen(role='button', tabindex='0') full screen
+                                    .jp-playlist
+                                      ul
+                                        // The method Playlist.displayPlaylist() uses this unordered list
+                                        li
+                                    .jp-no-solution
+                                      span Update Required
+                                      |             To play the media you will need to either update your browser to a recent version or update your 
+                                      a(href='http://get.adobe.com/flashplayer/', target='_blank') Flash plugin
+                                      | .
+                            div(class="col-lg-3 col-md-12")
+                    div(class="col-lg-3 col-md-12")
+                        h3 PLAYLIST
+                        ul(id="playlist_c")
+                div(class="row")
+                    div(class="col-lg-9 col-md-12")
+                        h1= title
+                    div(class="col-lg-3 col-md-12")
+                        p Welcome to #{title}
+        div(class="row")
+            div(class="col-lg-6 col-md-6")
+                div(id="socketData")
+                span(id="filePath")
+                progress(id="p1" value="0" max="100")
+            div(class="col-lg-6 col-md-6")
+                div(class="progress")
+                    div(class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;").
+                        60%
+        
